@@ -1,6 +1,7 @@
 let firstNumber = "";
 let secondNumber = "";
 let operator = "";
+let input = document.querySelector(".input")
 
 function display(){
     let operators = ["+","-","x","/"]
@@ -11,6 +12,35 @@ function display(){
             operator = this.textContent;
         }
     }
+
+    else if (this.textContent === "AC"){
+        firstNumber = ""
+        secondNumber = ""
+        operator = ""
+        input.textContent = ""
+    }
+
+    else if (this.textContent === "DEL"){
+        // console.log(equation.textContent)
+        // console.log(Boolean(equation.textContent))
+        // console.log(equation.textContent === "")
+
+        console.log(firstNumber, secondNumber, operator)
+
+        if (!operator && firstNumber){
+            firstNumber = firstNumber.slice(0, -1)
+        }
+        else if (operator && !secondNumber){
+            operator = operator.slice(0, -1)
+        }
+        else if (firstNumber && operator && secondNumber) {
+            secondNumber = secondNumber.slice(0, -1)
+        }
+        else {
+            input.textContent = ""
+        }
+    }
+
     else { // User clicked number
         if (!operator){
             firstNumber += this.textContent
@@ -19,7 +49,7 @@ function display(){
             secondNumber += this.textContent
         }
     }
-    equation.textContent = `${firstNumber} ${operator} ${secondNumber}`
+    equation.textContent = `${firstNumber}${operator}${secondNumber}`
 }
 
 function operate(firstNumber, secondNumber, operator){
@@ -73,6 +103,12 @@ let op = document.querySelectorAll(".operator")
 op.forEach(function(operator){
     operator.addEventListener("click", display)
 })
+
+let allclear = document.querySelector(".allclear")
+allclear.addEventListener("click", display)
+
+let del = document.querySelector(".delete")
+del.addEventListener("click", display)
 
 let result = document.querySelector(".result")
 result.addEventListener("click", () => {
