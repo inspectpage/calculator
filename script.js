@@ -9,6 +9,7 @@ function display(){
     if (operators.includes(this.textContent)){ // User clicked operator
         if (!operator){
             operator = this.textContent;
+        }
     }
     else { // User clicked number
         if (!operator){
