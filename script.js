@@ -71,6 +71,9 @@ function operate(firstNumber, secondNumber, operator){
         case "x":
             return Math.round((firstNumber * secondNumber)*10**4)/10**4
         case "/":
+            if (secondNumber === 0){
+                return "ERROR"
+            }
             return Math.round((firstNumber / secondNumber)*10**4)/10**4
     }
 }
