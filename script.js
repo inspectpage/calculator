@@ -11,6 +11,14 @@ function display(){
         if (!operator){
             operator = this.textContent;
         }
+        else if (operator && secondNumber){
+            answer = operate(firstNumber, secondNumber, operator)
+            input.textContent = answer
+            equation.textContent = ""
+            firstNumber = answer
+            secondNumber = ""
+            operator = ""
+        }
     }
 
     else if (this.textContent === "AC"){
