@@ -65,13 +65,13 @@ function operate(firstNumber, secondNumber, operator){
     secondNumber = Number(secondNumber)
     switch (operator) {
         case "+":
-            return firstNumber + secondNumber
+            return Math.round((firstNumber + secondNumber)*10**4)/10**4
         case "-":
-            return firstNumber - secondNumber
+            return Math.round((firstNumber - secondNumber)*10**4)/10**4
         case "x":
-            return firstNumber * secondNumber
+            return Math.round((firstNumber * secondNumber)*10**4)/10**4
         case "/":
-            return firstNumber / secondNumber
+            return Math.round((firstNumber / secondNumber)*10**4)/10**4
     }
 }
 
