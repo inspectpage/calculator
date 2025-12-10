@@ -29,12 +29,6 @@ function display(){
     }
 
     else if (this.textContent === "DEL"){
-        // console.log(equation.textContent)
-        // console.log(Boolean(equation.textContent))
-        // console.log(equation.textContent === "")
-
-        console.log(firstNumber, secondNumber, operator)
-
         if (!operator && firstNumber){
             firstNumber = firstNumber.slice(0, -1)
         }
